@@ -1,11 +1,7 @@
-# Compiled class file
+*.iml
+target
+bin
 *.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -13,12 +9,63 @@
 # Package Files #
 *.jar
 *.war
-*.nar
 *.ear
-*.zip
-*.tar.gz
-*.rar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-replay_pid*
+
+# Intellij
+.idea
+**/*.iml
+
+# Maven
+**/target
+
+# vaadin
+**/*.scss
+
+# build
+javacore.**
+Snap.**
+
+# OS
+.DS_Store
+
+# Cookies
+cookies.txt
+
+# Logs
+tmlog.lck
+tmlog*.log
+
+# Gradle
+.gradle
+build
+yarn.lock
+gradle-wrapper.jar
+
+# Others
+.attach*
+
+# Native
+*.dll
+*.o
+
+# Gradle
+.gradle
+gradle/wrapper/gradle-wrapper.jar
+.kotlin
+
+# Lein
+.lsp
+.clj-kondo
+
+Kotlin
+kotlin-compiler*
+
+## Automation
+cypressUpdateOne.sh
+docker-composetmp.yml
+packagetmp.json
+pluginUpdatesOne.sh
+javaUpdatesOne.sh

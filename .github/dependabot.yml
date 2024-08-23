@@ -1,0 +1,68 @@
+version: 2
+updates:
+
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    groups:
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin.*"
+          - "com.google.devtools.ksp"
+          - "kotlin*"
+          - "*kotlin*"
+      spring:
+        patterns:
+          - "*spring*"
+      junit-jupiter:
+        patterns:
+          - "junit-jupiter*"
+          - "*junit-jupiter*"
+      slf4j:
+         patterns:
+           - "*slf4j*"
+           - "slf4j*"
+           - "*slf4j"
+
+  - package-ecosystem: "gradle"
+    directory: "/experiments/dokka-multilevel"
+    schedule:
+      interval: "daily"
+    groups:
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin.*"
+          - "com.google.devtools.ksp"
+          - "kotlin*"
+          - "*kotlin*"
+      spring:
+        patterns:
+          - "*spring*"
+      junit-jupiter:
+        patterns:
+          - "junit-jupiter*"
+          - "*junit-jupiter*"
+      slf4j:
+         patterns:
+           - "*slf4j*"
+           - "slf4j*"
+           - "*slf4j"
+
+  - package-ecosystem: "maven"
+    directory: "/demo-projects/fibonacci"
+    schedule:
+      interval: "daily"
+    groups:
+      postgresql:
+        patterns:
+          - "*postgresql*"
+      maven:
+        patterns:
+          - "*maven*"
+      kotlin:
+        patterns:
+          - "*kotlin*"
+      spring:
+        patterns:
+          - "*spring*"
