@@ -1,4 +1,4 @@
-name: asnsei-the-right-waf Build
+name: VTCC Build
 
 on:
   pull_request:
