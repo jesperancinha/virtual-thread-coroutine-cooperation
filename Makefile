@@ -1,7 +1,7 @@
 include Makefile.mk
 
 b: build
-build:
+build: wrapper
 	./gradlew
 wrapper:
 	gradle wrapper
