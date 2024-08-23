@@ -1,6 +1,7 @@
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
 }
+
 rootProject.name = "virtual-thread-coroutine-cooperation"
 include("warehouse-fulfillment")
 include("warehouse-request-register")
