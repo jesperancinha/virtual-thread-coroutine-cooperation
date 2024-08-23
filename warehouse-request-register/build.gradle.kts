@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    api(libs.kotlinx.coroutines.core)
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
