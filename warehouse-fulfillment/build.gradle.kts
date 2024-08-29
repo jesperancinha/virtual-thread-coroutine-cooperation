@@ -1,5 +1,8 @@
 plugins {
-    kotlin("jvm") version "2.0.20"
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.spring)
 }
 
 group = "org.jesperancinha"
@@ -10,6 +13,14 @@ repositories {
 }
 
 dependencies {
+    // Core dependencies
+    implementation("org.springframework.boot:spring-boot-starter")
+
+    // Reactive programming support
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+
+    // Testing dependencies
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
@@ -20,4 +31,4 @@ kotlin {
     jvmToolchain(21)
 }
 
-tasks.register("prepareKotlinBuildScriptModel"){}
+tasks.register("prepareKotlinBuildScriptModel") {}
