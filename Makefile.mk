@@ -1,6 +1,8 @@
 SHELL := /bin/sh
 GRADLE_VERSION ?= 8.10
 
+b:
+
 install:
 	sdk install kotlin
 install-locust:
