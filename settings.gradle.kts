@@ -3,7 +3,7 @@ plugins {
 }
 
 rootProject.name = "virtual-thread-coroutine-cooperation"
-include("warehouse-fulfillment")
+include("warehouse-fulfilment")
 include("warehouse-request-register")
 include("warehouse-service")
 include("warehouse-fulfilment-tester")
