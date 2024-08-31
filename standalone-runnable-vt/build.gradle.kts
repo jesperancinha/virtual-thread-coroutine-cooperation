@@ -8,6 +8,10 @@ plugins {
 group = "org.jesperancinha"
 version = "1.0-SNAPSHOT"
 
+tasks.bootJar {
+    archiveFileName.set("warehouse-fulfilment.jar")
+}
+
 repositories {
     mavenCentral()
 }

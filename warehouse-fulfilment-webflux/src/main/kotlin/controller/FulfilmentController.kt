@@ -18,8 +18,8 @@ import kotlin.time.Duration.Companion.milliseconds
 class FulfilmentController {
 
     @GetMapping
-    fun getItems(): Flux<String> = Flux.fromIterable (1..10).publishOn(Schedulers.boundedElastic()).map {
-        sleep(10.milliseconds.inWholeMilliseconds)
+    fun getItems(): Flux<String> = Flux.fromIterable (1..10).map {
+//        sleep(10.milliseconds.inWholeMilliseconds)
         val product = Product(name = "TV", isleType = Room)
         logger.info("Product: $product")
         product.name
