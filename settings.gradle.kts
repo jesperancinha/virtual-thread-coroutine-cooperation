@@ -4,7 +4,9 @@ plugins {
 
 rootProject.name = "virtual-thread-coroutine-cooperation"
 include("standalone-runnable-vt")
-include("warehouse-request-register")
+include("standalone-runnable-coroutines")
+include("example-runnable-coroutines")
+include("example-runnable-virtual-threads")
 include("warehouse-service")
 include("warehouse-fulfilment-mvc")
 include("warehouse-fulfilment-webflux")
