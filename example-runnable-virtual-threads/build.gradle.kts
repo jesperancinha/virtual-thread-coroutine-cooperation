@@ -17,16 +17,11 @@ repositories {
 }
 
 dependencies {
-    // Core dependencies
     implementation("org.springframework.boot:spring-boot-starter")
-
-    // Reactive programming support
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation(libs.kotlinx.coroutines.core)
-
-    // Testing dependencies
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.jetbrains.kotlin:kotlin-test")}
+}
 
 tasks.test {
     useJUnitPlatform()
