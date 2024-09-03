@@ -1,71 +1,33 @@
 package org.jesperancinha
 
-import kotlinx.coroutines.*
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+import java.lang.Thread.sleep
+import java.util.*
+import kotlin.random.Random
 
-/**
- * TODO() Multiple messaging sending library
- */
-class UserViewModel {
+val logger: Logger = LoggerFactory.getLogger(User::class.java)
 
-    fun loadUserData(userId: String) {
-        runBlocking {
-            try {
-                val user = withContext(IO) { fetchUser(userId) }
+data class User(val id: Long, val name: String, val email: String)
 
-                val postsDeferred = async(IO) { fetchUserPosts(user.id) }
-                val commentsDeferred = async(IO) { fetchUserComments(user.id) }
-
-                val posts = postsDeferred.await()
-                val comments = commentsDeferred.await()
-
-                val processedData = processUserData(user, posts, comments)
-
-                withContext(Main) {
-                    updateUI(processedData)
-                }
-            } catch (e: Exception) {
-                handleError(e)
-            }
-        }
-    }
-
-    private suspend fun fetchUser(userId: String): User {
-        delay(1000)
-        return User(userId, "John Doe")
-    }
-
-    private suspend fun fetchUserPosts(userId: String): List<Post> {
-        delay(1000)
-        return listOf(Post("Post 1"), Post("Post 2"))
-    }
-
-    private suspend fun fetchUserComments(userId: String): List<Comment> {
-        delay(1000)
-        return listOf(Comment("Comment 1"), Comment("Comment 2"))
-    }
-
-    private fun processUserData(user: User, posts: List<Post>, comments: List<Comment>): ProcessedData {
-        // Process data
-        return ProcessedData(user, posts, comments)
-    }
-
-    private fun updateUI(data: ProcessedData) {
-        // Update UI with processed data
-    }
-
-    private fun handleError(e: Exception) {
-        // Handle any errors that occur
+fun sendMessage(text: String, users: List<User>) = users.chunked(50).map {
+    Thread.startVirtualThread {
+        it.map {
+            Thread.startVirtualThread { sendEmail(text, it) }
+        }.forEach { it.join() }
     }
 }
 
-// Data classes
-data class User(val id: String, val name: String)
-data class Post(val content: String)
-data class Comment(val content: String)
-data class ProcessedData(val user: User, val posts: List<Post>, val comments: List<Comment>)
+
+fun sendEmail(message: String, user: User) {
+    sleep(1000)
+    logger.info("sent to user $user")
+}
 
 fun main() {
-    
+    sendMessage("This is a message", (1..100).map {
+        User(
+            id = Random.nextLong(), name = "user-${UUID.randomUUID()}", email = "user-${UUID.randomUUID()}"
+        )
+    }).forEach { it.join() }
 }
