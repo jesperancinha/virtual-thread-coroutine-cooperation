@@ -1,6 +1,6 @@
 package org.jesperancinha.vtcc
 
-import org.jesperancinha.org.jesperancinha.vtcc.VirtualThreadsDemoApplication.Companion.main
+import org.jesperancinha.vtcc.VirtualThreadsDemoApplication.Companion.main
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 

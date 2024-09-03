@@ -1,15 +1,13 @@
-package org.jesperancinha
+package org.jesperancinha.vtcc
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
-/**
- * TODO() Getting all data library
- */
 class UserViewModel {
-
-    fun loadUserData(userId: String) {
+    fun loadUserData(userId: Long) {
         runBlocking {
             try {
                 val user = withContext(IO) { fetchUser(userId) }
@@ -22,7 +20,7 @@ class UserViewModel {
 
                 val processedData = processUserData(user, posts, comments)
 
-                withContext(Main) {
+                withContext(IO) {
                     updateUI(processedData)
                 }
             } catch (e: Exception) {
@@ -31,17 +29,17 @@ class UserViewModel {
         }
     }
 
-    private suspend fun fetchUser(userId: String): User {
+    private suspend fun fetchUser(userId: Long): User {
         delay(1000)
         return User(userId, "John Doe")
     }
 
-    private suspend fun fetchUserPosts(userId: String): List<Post> {
+    private suspend fun fetchUserPosts(userId: Long): List<Post> {
         delay(1000)
         return listOf(Post("Post 1"), Post("Post 2"))
     }
 
-    private suspend fun fetchUserComments(userId: String): List<Comment> {
+    private suspend fun fetchUserComments(userId: Long): List<Comment> {
         delay(1000)
         return listOf(Comment("Comment 1"), Comment("Comment 2"))
     }
@@ -52,20 +50,24 @@ class UserViewModel {
     }
 
     private fun updateUI(data: ProcessedData) {
-        // Update UI with processed data
+        logger.info("This is the data $data")
     }
 
     private fun handleError(e: Exception) {
         // Handle any errors that occur
     }
+
+    companion object {
+        val logger: Logger = LoggerFactory.getLogger(UserViewModel::class.java)
+    }
 }
 
-// Data classes
-data class User(val id: String, val name: String)
+data class User(val id: Long, val name: String)
 data class Post(val content: String)
 data class Comment(val content: String)
 data class ProcessedData(val user: User, val posts: List<Post>, val comments: List<Comment>)
 
 fun main() {
-
+    val userViewModel = UserViewModel()
+    userViewModel.loadUserData(1000)
 }

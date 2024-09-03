@@ -1,4 +1,4 @@
-package org.jesperancinha.org.jesperancinha.vtcc
+package org.jesperancinha.vtcc
 
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication

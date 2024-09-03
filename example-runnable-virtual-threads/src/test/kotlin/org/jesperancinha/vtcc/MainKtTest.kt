@@ -1,5 +1,6 @@
-import org.jesperancinha.main
-import org.junit.jupiter.api.Assertions.*
+package org.jesperancinha.vtcc
+
+import org.jesperancinha.vtcc.main
 import org.junit.jupiter.api.Test
 
 class MainKtTest {

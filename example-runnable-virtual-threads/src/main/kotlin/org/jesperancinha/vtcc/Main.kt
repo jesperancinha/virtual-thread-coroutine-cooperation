@@ -1,4 +1,4 @@
-package org.jesperancinha
+package org.jesperancinha.vtcc
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
