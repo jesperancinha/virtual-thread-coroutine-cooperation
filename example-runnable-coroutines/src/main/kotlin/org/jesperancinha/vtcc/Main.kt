@@ -1,29 +1,24 @@
 package org.jesperancinha.vtcc
 
+import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 class UserViewModel {
-    fun loadUserData(userId: Long) {
-        runBlocking {
-            try {
-                val user = withContext(IO) { fetchUser(userId) }
-                val postsDeferred = async(IO) { fetchUserPosts(user.id) }
-                val commentsDeferred = async(IO) { fetchUserComments(user.id) }
-                val posts = postsDeferred.await()
-                val comments = commentsDeferred.await()
-                val processedData = processUserData(user, posts, comments)
-                withContext(IO) {
-                    updateUI(processedData)
-                }
-            } catch (e: Exception) {
-                handleError(e)
+    suspend fun loadUserData(userId: Long) = coroutineScope {
+        try {
+            val user = withContext(IO) { fetchUser(userId) }
+            val postsDeferred = async(IO) { fetchUserPosts(user.id) }
+            val commentsDeferred = async(IO) { fetchUserComments(user.id) }
+            val posts = postsDeferred.await()
+            val comments = commentsDeferred.await()
+            val processedData = processUserData(user, posts, comments)
+            withContext(IO) {
+                updateUI(processedData)
             }
+        } catch (e: Exception) {
+            handleError(e)
         }
     }
 
@@ -65,7 +60,7 @@ data class Post(val content: String)
 data class Comment(val content: String)
 data class ProcessedData(val user: User, val posts: List<Post>, val comments: List<Comment>)
 
-fun main() {
+fun main() = runBlocking {
     val userViewModel = UserViewModel()
     userViewModel.loadUserData(1000)
 }
