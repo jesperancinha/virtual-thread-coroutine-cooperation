@@ -2,28 +2,28 @@ package org.jesperancinha.vtcc;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.concurrent.Future;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.StructuredTaskScope;
 
 public class JavaStructuredConcurrencyTest {
 
+    private UserViewModelJava userViewModelJava = new UserViewModelJava();
 
     @Test
     public void testJavaConcurrency() {
         try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-            var task1 = scope.fork(() -> longRunningTask("Task1"));
-            var task2 = scope.fork(() -> longRunningTask("Task2"));
+            var userDeferred = scope.fork(() -> userViewModelJava.fetchUser(10L));
+            var postsDeferred = scope.fork(() -> userViewModelJava.fetchUserPosts(10L));
+            var commentsDeferred = scope.fork(() -> userViewModelJava.fetchUserComments(10L));
             scope.join();
             scope.throwIfFailed();
-            System.out.println(STR."Result 1: \{task1.get()}");
-            System.out.println(STR."Result 2: \{task2.get()}");
-        } catch (Exception e) {
-            e.printStackTrace();
+            var processedData = userViewModelJava.processUserData(
+                    userDeferred.get(), postsDeferred.get(), commentsDeferred.get());
+            userViewModelJava.updateUI(processedData);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
-    }
-
-    private String longRunningTask(String name) throws InterruptedException {
-        Thread.sleep(1000);
-        return name + " completed";
     }
 }
