@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers.IO
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class UserViewModel {
+class UserService {
     suspend fun loadUserData(userId: Long) = coroutineScope {
         try {
             val user = withContext(IO) { fetchUser(userId) }
@@ -38,7 +38,6 @@ class UserViewModel {
     }
 
     private fun processUserData(user: User, posts: List<Post>, comments: List<Comment>): ProcessedData {
-        // Process data
         return ProcessedData(user, posts, comments)
     }
 
@@ -47,20 +46,15 @@ class UserViewModel {
     }
 
     private fun handleError(e: Exception) {
-        // Handle any errors that occur
+        logger.error("An error occurred while processing user data", e)
     }
 
     companion object {
-        val logger: Logger = LoggerFactory.getLogger(UserViewModel::class.java)
+        val logger: Logger = LoggerFactory.getLogger(UserService::class.java)
     }
 }
 
-data class User(val id: Long, val name: String)
-data class Post(val content: String)
-data class Comment(val content: String)
-data class ProcessedData(val user: User, val posts: List<Post>, val comments: List<Comment>)
-
 fun main() = runBlocking {
-    val userViewModel = UserViewModel()
-    userViewModel.loadUserData(1000)
+    val userService = UserService()
+    userService.loadUserData(1000)
 }

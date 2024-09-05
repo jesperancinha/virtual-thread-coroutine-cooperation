@@ -7,9 +7,9 @@ import java.util.List;
 
 import static java.lang.Thread.sleep;
 
-public class UserViewModelJava {
+public class UserServiceJava {
 
-    private static Logger logger = LoggerFactory.getLogger(UserViewModelJava.class);
+    private static Logger logger = LoggerFactory.getLogger(UserServiceJava.class);
 
     public User fetchUser(Long userId) throws InterruptedException {
         sleep(1000);
@@ -27,7 +27,6 @@ public class UserViewModelJava {
     }
 
     ProcessedData processUserData(User user, List<Post> posts, List<Comment> comments) {
-        // Process data
         return new ProcessedData(user, posts, comments);
     }
 
@@ -36,7 +35,7 @@ public class UserViewModelJava {
     }
 
     private void handleError(Exception e) {
-        // Handle any errors that occur
+        logger.error(e, () -> "An error has occurred!");
     }
 
 }
