@@ -13,7 +13,6 @@ data class User(val id: Long, val name: String, val email: String)
 class MessageSender {
 
     fun sendMessage(text: String, users: List<User>) = users.chunked(50).map {
-        startVirtualThread {
             it.map {
                 startVirtualThread {
                     retry(5, 500) {
@@ -21,12 +20,11 @@ class MessageSender {
                     }
                 }
             }.forEach { it.join() }
-        }
-    }.forEach { it.join() }
+    }
 
     companion object {
         val logger: Logger = LoggerFactory.getLogger(User::class.java)
-        val random = java.util.Random()
+        private val random = java.util.Random()
 
         fun sendEmail(message: String, user: User) {
             sleep(1000)
@@ -55,6 +53,7 @@ fun <T> retry(maxRetries: Int, delayMillis: Long, block: () -> T): T {
 
 fun main() {
     val messageSender = MessageSender()
+    logger.info("Starting to send messages")
     messageSender.sendMessage("This is a message", (1..100).map {
         User(
             id = Random.nextLong(), name = "user-${UUID.randomUUID()}", email = "user-${UUID.randomUUID()}"

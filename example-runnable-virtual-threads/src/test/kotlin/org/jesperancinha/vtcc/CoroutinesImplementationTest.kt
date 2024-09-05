@@ -12,19 +12,17 @@ import kotlin.random.Random
 
 class MessageSenderCoroutines {
 
-   suspend fun sendMessage(text: String, users: List<User>) = coroutineScope {
-       users.chunked(50).map {
-           async {
-               it.map {
-                   async {
-                       retry(5, 500) {
-                           sendEmail(text, it)
-                       }
-                   }
-               }.awaitAll()
-           }
-       }.awaitAll()
-   }
+    suspend fun sendMessage(text: String, users: List<User>) = coroutineScope {
+        users.chunked(50).map {
+            it.map {
+                async {
+                    retry(5, 500) {
+                        sendEmail(text, it)
+                    }
+                }
+            }.awaitAll()
+        }
+    }
 }
 
 
