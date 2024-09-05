@@ -3,6 +3,8 @@ b:
 	gradle clean build
 example-curl:
 	curl http://localhost:8080/api/v1/fulfilment
+example-control-curl:
+	curl http://localhost:8080/api/v1/fulfilment/control
 launch-locust:
 	locust -f locust_fulfilment.py --host=http://localhost:8080
 dcup:
