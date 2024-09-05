@@ -8,17 +8,22 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Flux
+import reactor.core.scheduler.Schedulers
+import java.lang.Thread.sleep
+import java.time.Duration
+import kotlin.time.Duration.Companion.milliseconds
 
 @RestController
 @RequestMapping("fulfilment")
 class FulfilmentController {
 
     @GetMapping
-    fun getItems(): Flux<String> = Flux.fromIterable (1..10).map {
-        val product = Product(name = "TV", isleType = Room)
-        logger.info("Product: $product")
-        product.name
-    }
+    fun getItems(): Flux<String> = Flux.fromStream((1..10).toSet().stream())
+        .map {
+            val product = Product(name = "TV", isleType = Room)
+            logger.info("Product: $product")
+            product.name
+        }
 
     companion object {
         val logger: Logger = LoggerFactory.getLogger(FulfilmentController::class.java)

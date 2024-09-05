@@ -13,3 +13,12 @@ install-python:
 	pip install charset_normalizer
 upgrade-pip:
 	pip install --upgrade pip
+stop-all-containers:
+	docker ps -a -q --filter="name=warehouse" | xargs -I {} docker stop {}
+	docker ps -a -q --filter="name=warehouse" | xargs -I {}  docker rm {}
+	docker images -a -q --filter="reference=ware*" | xargs -I {} docker rmi {}
+dcup:
+	docker-compose up -d
+dcup-rebuild: stop-all-containers
+	docker-compose down
+	docker-compose up -d --build --force-recreate
