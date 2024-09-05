@@ -16,7 +16,6 @@ class FulfilmentController {
 
     @GetMapping
     fun getItems() = flowOf(1..10).map {
-//        sleep(10.milliseconds.inWholeMilliseconds)
         val product = Product(name = "TV", isleType = Room)
         logger.info("Product: $product")
         product.name
