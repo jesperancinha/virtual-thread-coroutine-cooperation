@@ -12,6 +12,11 @@ also be true
 - [Context Switching Theory](https://www.ibm.com/docs/en/zvm/7.3?topic=exits-context-switching)
 - [Thread Theory - DePaul University - Boston](https://condor.depaul.edu/glancast/443class/docs/lecFeb05.html)
 
+### Related projects
+
+- [Good story](https://github.com/jesperancinha/good-story/)
+- [Kotlin Mysteries](https://github.com/jesperancinha/kotlin-mysteries)
+
 ## About me
 
 [![GitHub followers](https://img.shields.io/github/followers/jesperancinha.svg?label=Jesperancinha&style=for-the-badge&logo=github&color=grey "GitHub")](https://github.com/jesperancinha)
