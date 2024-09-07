@@ -19,8 +19,9 @@ updates:
         patterns:
           - "junit-jupiter*"
           - "*junit-jupiter*"
-      slf4j:
+      log:
          patterns:
            - "*slf4j*"
            - "slf4j*"
            - "*slf4j"
+           - "*log*"
