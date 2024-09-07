@@ -5,7 +5,6 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.internal.AtomicOp
 import kotlinx.coroutines.launch
 import org.jesperancinha.vtcc.userservice.Comment
 import org.jesperancinha.vtcc.userservice.Post

@@ -1,12 +1,11 @@
 package org.jesperancinha.vtcc
 
-import io.kotest.matchers.shouldHave
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
-import org.junit.jupiter.api.Test
 import io.kotest.matchers.collections.shouldHaveSize
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.runBlocking
+import org.junit.jupiter.api.Test
 
 class UserServiceTest {
 
