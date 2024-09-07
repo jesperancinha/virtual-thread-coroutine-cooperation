@@ -15,14 +15,16 @@ class MessageSender {
 
     fun sendMessage(text: String) = sendMessage(text, getAllUsers())
 
-    fun sendMessage(text: String, users: List<User>) = users.chunked(50).map {
-        it.map {
-            startVirtualThread {
-                retry(5, 500) {
-                    sendEmail(text, it)
+    fun sendMessage(text: String, users: List<User>) {
+        users.chunked(50).map {
+            it.map {
+                startVirtualThread {
+                    retry(5, 500) {
+                        sendEmail(text, it)
+                    }
                 }
-            }
-        }.forEach { it.join() }
+            }.forEach { it.join() }
+        }
     }
 
     companion object {
