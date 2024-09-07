@@ -53,8 +53,3 @@ class UserService {
         val logger: Logger = LoggerFactory.getLogger(UserService::class.java)
     }
 }
-
-fun main() = runBlocking {
-    val userService = UserService()
-    userService.loadUserData(1000)
-}

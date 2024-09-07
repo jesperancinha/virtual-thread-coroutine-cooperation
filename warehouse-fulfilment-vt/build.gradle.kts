@@ -5,8 +5,8 @@ plugins {
     alias(libs.plugins.kotlin.spring)
 }
 
-group = "org.jesperancinha"
-version = "1.0-SNAPSHOT"
+group = "org.jesperancinha.vtcc"
+version = "0.0.0"
 
 tasks.bootJar {
     archiveFileName.set("warehouse-fulfilment.jar")

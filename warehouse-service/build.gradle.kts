@@ -2,8 +2,8 @@ plugins {
     kotlin("jvm") version "2.0.20"
 }
 
-group = "org.jesperancinha"
-version = "1.0-SNAPSHOT"
+group = "org.jesperancinha.vtcc"
+version = "0.0.0"
 
 repositories {
     mavenCentral()

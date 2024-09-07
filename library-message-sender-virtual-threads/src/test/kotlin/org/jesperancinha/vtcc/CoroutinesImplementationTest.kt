@@ -1,9 +1,6 @@
 package org.jesperancinha.vtcc
 
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import org.jesperancinha.vtcc.MessageSender.Companion.sendEmail
 import org.junit.jupiter.api.Test
 import java.util.*
@@ -29,7 +26,7 @@ class MessageSenderCoroutines {
 class CoroutinesImplementationTest {
 
     @Test
-    fun `should test coroutines`(): Unit = runBlocking {
+    fun `should test coroutines`(): Unit = runBlocking(Dispatchers.IO) {
         val messageSender = MessageSenderCoroutines()
         messageSender.sendMessage("This is a message", (1..100).map {
             User(
@@ -38,4 +35,5 @@ class CoroutinesImplementationTest {
         })
 
     }
+
 }
