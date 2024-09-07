@@ -3,6 +3,12 @@ b:
 	gradle clean build
 example-curl:
 	curl http://localhost:8080/api/v1/fulfilment
+example-process-users:
+	curl http://localhost:8080/api/v1/fulfilment/users/1000
+example-get-all-users:
+	curl http://localhost:8080/api/v1/fulfilment/allUsers
+example-messages:
+	curl -X POST http://localhost:8080/api/v1/fulfilment/messages -H "Content-Type: application/json" -d '{"message":"!!!NOSTROMEOW Alert!!"}'
 example-control-curl:
 	curl http://localhost:8080/api/v1/fulfilment/control
 launch-locust:
