@@ -17,6 +17,8 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":library-message-sender-virtual-threads"))
+    implementation(project(":library-user-service-coroutines"))
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation(libs.kotlinx.coroutines.core)

@@ -1,6 +1,6 @@
 package org.jesperancinha.domain
 
-import java.util.UUID
+import java.util.*
 
 enum class IsleType {
     Kitchen,

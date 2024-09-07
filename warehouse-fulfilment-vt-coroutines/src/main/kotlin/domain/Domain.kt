@@ -1,6 +1,6 @@
 package org.jesperancinha.domain
 
-import java.util.UUID
+import java.util.*
 
 enum class IsleType {
     Kitchen,
@@ -12,4 +12,8 @@ data class Product(
     val id:UUID  = UUID.randomUUID(),
     val name: String,
     val isleType: IsleType
+)
+
+data class Message(
+    val message:String
 )

@@ -1,26 +1,31 @@
 package org.jesperancinha.vtcc
 
-import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.springframework.stereotype.Service
 
+@Service
 class UserService {
-    suspend fun loadUserData(userId: Long) = coroutineScope {
-        try {
-            val user = withContext(IO) { fetchUser(userId) }
-            val postsDeferred = async(IO) { fetchUserPosts(user.id) }
-            val commentsDeferred = async(IO) { fetchUserComments(user.id) }
-            val posts = postsDeferred.await()
-            val comments = commentsDeferred.await()
-            val processedData = processUserData(user, posts, comments)
+    suspend fun loadUserData(userId: Long): ProcessedData =
+        runCatching {
             withContext(IO) {
-                updateUI(processedData)
+                val user = fetchUser(userId)
+                val postsDeferred = async { fetchUserPosts(user.id) }
+                val commentsDeferred = async { fetchUserComments(user.id) }
+                val posts = postsDeferred.await()
+                val comments = commentsDeferred.await()
+                val processedData = processUserData(user, posts, comments)
+                async {
+                    updateUI(processedData)
+                }
+                processedData
             }
-        } catch (e: Exception) {
-            handleError(e)
-        }
-    }
+
+        }.getOrThrow()
 
     private suspend fun fetchUser(userId: Long): User {
         delay(1000)

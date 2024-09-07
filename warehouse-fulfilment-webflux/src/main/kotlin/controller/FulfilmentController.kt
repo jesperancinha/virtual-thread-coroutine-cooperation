@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Flux
-import reactor.core.scheduler.Schedulers
-import java.lang.Thread.sleep
-import java.time.Duration
-import kotlin.time.Duration.Companion.milliseconds
 
 @RestController
 @RequestMapping("fulfilment")
