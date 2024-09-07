@@ -11,21 +11,18 @@ import org.springframework.stereotype.Service
 @Service
 class UserService {
     suspend fun loadUserData(userId: Long): ProcessedData =
-        runCatching {
-            withContext(IO) {
-                val user = fetchUser(userId)
-                val postsDeferred = async { fetchUserPosts(user.id) }
-                val commentsDeferred = async { fetchUserComments(user.id) }
-                val posts = postsDeferred.await()
-                val comments = commentsDeferred.await()
-                val processedData = processUserData(user, posts, comments)
-                async {
-                    updateUI(processedData)
-                }
-                processedData
+        withContext(IO) {
+            val user = fetchUser(userId)
+            val postsDeferred = async { fetchUserPosts(user.id) }
+            val commentsDeferred = async { fetchUserComments(user.id) }
+            val posts = postsDeferred.await()
+            val comments = commentsDeferred.await()
+            val processedData = processUserData(user, posts, comments)
+            async {
+                updateUI(processedData)
             }
-
-        }.getOrThrow()
+            processedData
+        }
 
     private suspend fun fetchUser(userId: Long): User {
         delay(1000)
