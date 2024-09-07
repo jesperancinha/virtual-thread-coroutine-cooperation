@@ -16,5 +16,6 @@ class MessageSenderKtTest {
             User(
                 id = nextLong(), name = "user-${UUID.randomUUID()}", email = "user-${UUID.randomUUID()}"
             )
-        })    }
+        })
+    }
 }
