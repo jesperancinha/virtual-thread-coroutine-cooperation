@@ -17,13 +17,8 @@ repositories {
 }
 
 dependencies {
-    // Core dependencies
     implementation("org.springframework.boot:spring-boot-starter")
-
-    // Reactive programming support
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-
-    // Testing dependencies
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

@@ -1,5 +1,6 @@
 package org.jesperancinha.vtcc
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -24,14 +25,14 @@ class TaskService {
 
 @SpringBootApplication
 @EnableAsync
-class VirtualThreadsDemoApplication {
+class VirtualThreadsDemoApplication(
+    val taskService: TaskService,
+    @Value("\${org.jesperancinha.vtcc.tasks}") private val tasks: Int,
+) : CommandLineRunner{
 
-    @Bean
-    fun run(taskService: TaskService): CommandLineRunner {
-        return CommandLineRunner { args: Array<String?>? ->
-            for (i in 0..99999) {
-                taskService.executeTask(i)
-            }
+    override fun run(vararg args: String?) {
+        for (i in 0..tasks) {
+            taskService.executeTask(i)
         }
     }
 
