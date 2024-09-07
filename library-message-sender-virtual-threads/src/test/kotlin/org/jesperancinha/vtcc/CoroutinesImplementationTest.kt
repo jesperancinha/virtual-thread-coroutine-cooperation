@@ -2,6 +2,7 @@ package org.jesperancinha.vtcc
 
 import kotlinx.coroutines.*
 import org.jesperancinha.vtcc.MessageSender.Companion.sendEmail
+import org.jesperancinha.vtcc.messenger.User
 import org.junit.jupiter.api.Test
 import java.util.*
 import kotlin.random.Random

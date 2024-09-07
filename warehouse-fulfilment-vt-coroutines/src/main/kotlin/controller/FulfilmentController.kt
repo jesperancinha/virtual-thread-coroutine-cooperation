@@ -12,7 +12,9 @@ import org.jesperancinha.vtcc.MessageSender
 import org.jesperancinha.vtcc.UserService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.util.UUID
 import java.util.concurrent.Executors
 
 @RestController
@@ -45,8 +47,13 @@ class FulfilmentController(
     fun sendMessage(@RequestBody message: Message) =
         messageSender.sendMessage(message.message)
 
-    @GetMapping("users")
-    suspend fun getUserData() = userService.loadUserData(1000)
+    @GetMapping("users/{id}")
+    suspend fun processUserData(@PathVariable id:Long) = userService.loadUserData(id)
+        .run { UUID.randomUUID() }
+
+    @GetMapping("allUsers")
+    fun getAllUsers() = userService.getAllUsers()
+
     companion object {
         val logger: Logger = LoggerFactory.getLogger(FulfilmentController::class.java)
     }

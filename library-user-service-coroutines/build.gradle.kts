@@ -13,10 +13,13 @@ repositories {
 
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.reactor)
     implementation(libs.spring.context)
+    implementation(libs.spring.web)
     implementation(libs.slf4j.api)
     implementation(libs.slf4j.simple)
     testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.kotest.assertions.core.jvm)
 }
 
 tasks.test {
