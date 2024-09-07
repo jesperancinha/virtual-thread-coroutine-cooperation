@@ -1,6 +1,7 @@
 package org.jesperancinha.vtcc
 
 import org.jesperancinha.vtcc.MessageSender.Companion.logger
+import org.jesperancinha.vtcc.messenger.User
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -9,21 +10,21 @@ import java.lang.Thread.startVirtualThread
 import java.util.*
 import kotlin.random.Random
 
-data class User(val id: Long, val name: String, val email: String)
-
 @Service
 class MessageSender {
 
     fun sendMessage(text: String) = sendMessage(text, getAllUsers())
 
-    fun sendMessage(text: String, users: List<User>) = users.chunked(50).map {
-        it.map {
-            startVirtualThread {
-                retry(5, 500) {
-                    sendEmail(text, it)
+    fun sendMessage(text: String, users: List<User>) {
+        users.chunked(50).map {
+            it.map {
+                startVirtualThread {
+                    retry(5, 500) {
+                        sendEmail(text, it)
+                    }
                 }
-            }
-        }.forEach { it.join() }
+            }.forEach { it.join() }
+        }
     }
 
     companion object {

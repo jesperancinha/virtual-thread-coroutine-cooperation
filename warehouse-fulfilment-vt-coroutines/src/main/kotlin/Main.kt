@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication
-class VirtualThreadsExample
+class WarehouseFulfilmentVirtualThreadsCoroutines
 
 fun main(args: Array<String>) {
-    SpringApplication.run(VirtualThreadsExample::class.java, *args)
+    SpringApplication.run(WarehouseFulfilmentVirtualThreadsCoroutines::class.java, *args)
 }
