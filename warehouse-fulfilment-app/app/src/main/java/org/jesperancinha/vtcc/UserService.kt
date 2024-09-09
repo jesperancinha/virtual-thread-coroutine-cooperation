@@ -10,12 +10,8 @@ import org.jesperancinha.vtcc.userservice.Comment
 import org.jesperancinha.vtcc.userservice.Post
 import org.jesperancinha.vtcc.userservice.ProcessedData
 import org.jesperancinha.vtcc.userservice.User
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
-import org.springframework.stereotype.Service
 import java.util.concurrent.atomic.AtomicReference
 
-@Service
 class UserService {
 
     val dummySystem: AtomicReference<MutableSet<ProcessedData>> = AtomicReference(mutableSetOf())
@@ -31,7 +27,6 @@ class UserService {
         val comments = commentsDeferred.await()
         val processedData = processUserData(user, posts, comments)
         updateSytem(processedData)
-        logger.info("Complete!")
     }
 
     private suspend fun fetchUser(userId: Long): User {
@@ -54,15 +49,10 @@ class UserService {
     }
 
     private fun updateSytem(data: ProcessedData) = run {
-        logger.info("This is the data $data")
         dummySystem.get().add(data)
     }
 
     private fun handleError(e: Exception) {
-        logger.error("An error occurred while processing user data", e)
     }
 
-    companion object {
-        val logger: Logger = LoggerFactory.getLogger(UserService::class.java)
-    }
 }
