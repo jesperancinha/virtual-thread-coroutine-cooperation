@@ -5,6 +5,10 @@ plugins {
     alias(libs.plugins.kotlin.spring)
 }
 
+configurations.all {
+    exclude(group = "org.slf4j", module = "slf4j-simple")
+}
+
 group = "org.jesperancinha.vtcc"
 version = "0.0.0"
 

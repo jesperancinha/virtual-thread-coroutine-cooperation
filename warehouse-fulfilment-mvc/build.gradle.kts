@@ -5,6 +5,10 @@ plugins {
     alias(libs.plugins.kotlin.spring)
 }
 
+configurations.all {
+    exclude(group = "org.slf4j", module = "slf4j-simple")
+}
+
 group = "org.jesperancinha.vtcc"
 version = "0.0.0"
 
@@ -17,13 +21,8 @@ repositories {
 }
 
 dependencies {
-    // Core dependencies
     implementation("org.springframework.boot:spring-boot-starter")
-
-    // Reactive programming support
     implementation("org.springframework.boot:spring-boot-starter-web")
-
-    // Testing dependencies
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
