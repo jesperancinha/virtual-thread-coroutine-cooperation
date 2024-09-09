@@ -17,17 +17,30 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.Typography
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.jesperancinha.vtcc.userservice.Comment
+import org.jesperancinha.vtcc.userservice.Post
+import org.jesperancinha.vtcc.userservice.ProcessedData
+import org.jesperancinha.vtcc.userservice.User
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             MyApp()
         }
@@ -36,9 +49,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    // Use Material 3 Theme
     MaterialTheme(
-        colorScheme = lightColorScheme(), // You can customize the color scheme
+        colorScheme = lightColorScheme(),
         typography = Typography()
     ) {
         MainScreen()
@@ -47,83 +59,86 @@ fun MyApp() {
 
 @Composable
 fun MainScreen() {
-    // State variables for text fields
     var name by remember { mutableStateOf("") }
     var post by remember { mutableStateOf("") }
     var comment by remember { mutableStateOf("") }
+
+    // Coroutine scope to handle suspend functions
+    val scope = rememberCoroutineScope()
+
+    LaunchedEffect(Unit) {
+        scope.launch {
+            val userId = 1000L
+            launch { name = fetchUser(userId).name }
+            launch { post = fetchUserPosts(userId).first().content }
+            launch { comment = fetchUserComments(userId).first().content }
+        }
+    }
 
     // UI Layout
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp), // Outer padding
-        verticalArrangement = Arrangement.spacedBy(12.dp) // Spacing between items
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         // Name TextField
         OutlinedTextField(
             value = name,
             onValueChange = { name = it },
-            label = { Text("Name") },
+            label = { Text("") },
             modifier = Modifier.fillMaxWidth()
         )
         // Post TextField
         OutlinedTextField(
             value = post,
             onValueChange = { post = it },
-            label = { Text("Post") },
+            label = { Text("") },
             modifier = Modifier.fillMaxWidth()
         )
         // Comment TextField
         OutlinedTextField(
             value = comment,
             onValueChange = { comment = it },
-            label = { Text("Comment") },
+            label = { Text("") },
             modifier = Modifier.fillMaxWidth()
         )
-        // Optional: Display entered data
+
         Spacer(modifier = Modifier.height(20.dp))
         Text(text = "Entered Data:")
         Text(text = "Name: $name")
         Text(text = "Post: $post")
         Text(text = "Comment: $comment")
     }
+
 }
+
+
+suspend fun fetchUser(userId: Long): User {
+    delay(1)
+    return User(userId, "John Doe")
+}
+
+suspend fun fetchUserPosts(userId: Long): List<Post> {
+    delay(1)
+    return listOf(Post(userId, "Post 1"), Post(userId, "Post 2"))
+}
+
+suspend fun fetchUserComments(userId: Long): List<Comment> {
+    delay(1)
+    return listOf(Comment(userId, "Comment 1"), Comment(userId, "Comment 2"))
+}
+
+fun processUserData(user: User, posts: List<Post>, comments: List<Comment>): ProcessedData {
+    return ProcessedData(user, posts, comments)
+}
+
+fun handleError(e: Exception) {
+}
+
 
 @Preview(showBackground = true)
 @Composable
 fun PreviewMainScreen() {
     MyApp()
 }
-//
-//class MainActivity : ComponentActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
-//        setContent {
-//            WarehouseFulfilmentAppTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-//                }
-//            }
-//        }
-//    }
-//}
-//
-//@Composable
-//fun Greeting(name: String, modifier: Modifier = Modifier) {
-//    Text(
-//        text = "Hello $name!",
-//        modifier = modifier
-//    )
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview() {
-//    WarehouseFulfilmentAppTheme {
-//        Greeting("Android")
-//    }
-//}
