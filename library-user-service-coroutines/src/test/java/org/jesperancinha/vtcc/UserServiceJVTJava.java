@@ -45,17 +45,17 @@ public class UserServiceJVTJava {
 
     public User fetchUser(Long userId) throws InterruptedException {
         sleep(1000);
-        return new User(userId, "John Doe");
+        return new User(userId, "Joao Esperancinha");
     }
 
     public List<Post> fetchUserPosts(Long userId) throws InterruptedException {
         sleep(1000);
-        return List.of(new Post("Post 1"), new Post("Post 2"));
+        return List.of(new Post(userId, "My First Great Story"), new Post(userId, "My Second Great Story"));
     }
 
     public List<Comment> fetchUserComments(Long userId) throws InterruptedException {
         sleep(1000);
-        return List.of(new Comment("Comment 1"), new Comment("Comment 2"));
+        return List.of(new Comment(userId, "My opinion version 1"), new Comment(userId, "My opinion version 2"));
     }
 
     ProcessedData processUserData(User user, List<Post> posts, List<Comment> comments) {

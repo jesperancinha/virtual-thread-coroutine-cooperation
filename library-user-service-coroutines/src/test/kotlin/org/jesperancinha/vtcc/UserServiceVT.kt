@@ -37,17 +37,17 @@ class UserServiceVT {
 
     private fun fetchUser(userId: Long): User {
         sleep(1000)
-        return User(userId, "John Doe")
+        return User(userId, "Joao Esperancinha")
     }
 
     private fun fetchUserPosts(userId: Long): List<Post> {
         sleep(1000)
-        return listOf(Post("Post 1"), Post("Post 2"))
+        return listOf(Post(userId, "My First Great Story"), Post(userId, "My Second Great Story"))
     }
 
     private fun fetchUserComments(userId: Long): List<Comment> {
         sleep(1000)
-        return listOf(Comment("Comment 1"), Comment("Comment 2"))
+        return listOf(Comment(userId, "My opinion version 1"), Comment(userId, "My opinion version 2"))
     }
 
     private fun processUserData(user: User, posts: List<Post>, comments: List<Comment>): ProcessedData {

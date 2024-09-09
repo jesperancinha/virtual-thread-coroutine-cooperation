@@ -36,17 +36,17 @@ class UserService {
 
     private suspend fun fetchUser(userId: Long): User {
         delay(1000)
-        return User(userId, "John Doe")
+        return User(userId, "Joao Esperancinha")
     }
 
     private suspend fun fetchUserPosts(userId: Long): List<Post> {
         delay(1000)
-        return listOf(Post(userId, "Post 1"), Post(userId, "Post 2"))
+        return listOf(Post(userId, "My First Great Story"), Post(userId, "My Second Great Story"))
     }
 
     private suspend fun fetchUserComments(userId: Long): List<Comment> {
         delay(1000)
-        return listOf(Comment(userId, "Comment 1"), Comment(userId, "Comment 2"))
+        return listOf(Comment(userId, "My opinion version 1"), Comment(userId, "My opinion version 2"))
     }
 
     private fun processUserData(user: User, posts: List<Post>, comments: List<Comment>): ProcessedData {

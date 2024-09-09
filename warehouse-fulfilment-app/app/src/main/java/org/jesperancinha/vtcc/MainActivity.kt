@@ -26,9 +26,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jesperancinha.vtcc.userservice.Comment
@@ -82,21 +79,18 @@ fun MainScreen() {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        // Name TextField
         OutlinedTextField(
             value = name,
             onValueChange = { name = it },
             label = { Text("") },
             modifier = Modifier.fillMaxWidth()
         )
-        // Post TextField
         OutlinedTextField(
             value = post,
             onValueChange = { post = it },
             label = { Text("") },
             modifier = Modifier.fillMaxWidth()
         )
-        // Comment TextField
         OutlinedTextField(
             value = comment,
             onValueChange = { comment = it },
@@ -105,7 +99,7 @@ fun MainScreen() {
         )
 
         Spacer(modifier = Modifier.height(20.dp))
-        Text(text = "Entered Data:")
+        Text(text = "Current Data:")
         Text(text = "Name: $name")
         Text(text = "Post: $post")
         Text(text = "Comment: $comment")
@@ -116,17 +110,17 @@ fun MainScreen() {
 
 suspend fun fetchUser(userId: Long): User {
     delay(1)
-    return User(userId, "John Doe")
+    return User(userId, "Joao Esperancinha")
 }
 
 suspend fun fetchUserPosts(userId: Long): List<Post> {
     delay(1)
-    return listOf(Post(userId, "Post 1"), Post(userId, "Post 2"))
+    return listOf(Post(userId, "My First Great Story"), Post(userId, "My Second Great Story"))
 }
 
 suspend fun fetchUserComments(userId: Long): List<Comment> {
     delay(1)
-    return listOf(Comment(userId, "Comment 1"), Comment(userId, "Comment 2"))
+    return listOf(Comment(userId, "My opinion version 1"), Comment(userId, "My opinion version 2"))
 }
 
 fun processUserData(user: User, posts: List<Post>, comments: List<Comment>): ProcessedData {
