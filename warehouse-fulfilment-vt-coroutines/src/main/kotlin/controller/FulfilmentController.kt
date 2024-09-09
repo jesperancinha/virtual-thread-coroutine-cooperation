@@ -1,6 +1,8 @@
 package org.jesperancinha.controller
 
 import kotlinx.coroutines.asCoroutineDispatcher
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.flowOn
@@ -26,12 +28,10 @@ class FulfilmentController(
 ) {
 
     @GetMapping
-    fun getItems() = flow {
-        repeat(10) {
-            val product = Product(name = "TV", isleType = Room)
-            logger.info("Product: $product")
-            emit(product.name)
-        }
+    fun getItems(): Flow<String> = (1..10).asFlow().map {
+        val product = Product(name = "TV", isleType = Room)
+        logger.info("Product: $product")
+        product.name
     }.flowOn(
         Executors.newVirtualThreadPerTaskExecutor()
             .asCoroutineDispatcher()
