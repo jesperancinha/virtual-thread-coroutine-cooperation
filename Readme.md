@@ -7,6 +7,7 @@ also be true
 
 ### Online
 
+- [Coroutines, Java Virtual Threads and Scoped Values](https://discuss.kotlinlang.org/t/coroutines-java-virtual-threads-and-scoped-values/28004/2)
 - [Embracing Virtual Threads](https://spring.io/blog/2022/10/11/embracing-virtual-threads)
 - [How to use virtual threads with Spring Boot](https://bell-sw.com/blog/a-guide-to-using-virtual-threads-with-spring-boot)
 - [Context Switching Theory](https://www.ibm.com/docs/en/zvm/7.3?topic=exits-context-switching)
