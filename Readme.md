@@ -1,7 +1,16 @@
 # virtual-thread-coroutine-cooperation
 
+## Introduction
+
 Research into how coroutines can answer to today's problems with the help of virtual threads and how the opposite can
 also be true
+
+## Releases
+
+| Version  - Git-Tag                                                    | Git Hash                                                                                                                                    | Purpose                                                                                                                                      |
+|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| [1.0.0]() | []() | []() |
+
 
 ## Resources
 
