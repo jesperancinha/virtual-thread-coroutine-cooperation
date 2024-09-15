@@ -46,6 +46,7 @@ gradle-wrapper.jar
 
 # Others
 .attach*
+output.json
 
 # Native
 *.dll
