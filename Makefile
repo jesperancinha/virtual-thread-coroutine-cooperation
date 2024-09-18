@@ -14,3 +14,5 @@ deps-gradle-update:
 deps-quick-update: deps-gradle-update deps-plugins-update deps-java-update
 accept-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
+install-locust:
+	pip install --upgrade locust jinja2
