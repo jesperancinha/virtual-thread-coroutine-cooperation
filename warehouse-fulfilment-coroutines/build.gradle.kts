@@ -26,7 +26,6 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.reactor)
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
-    implementation("org.postgresql:r2dbc-postgresql")
     implementation(libs.r2dbc.postgresql)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
