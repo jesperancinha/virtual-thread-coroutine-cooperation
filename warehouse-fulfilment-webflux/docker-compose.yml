@@ -12,6 +12,9 @@ services:
         limits:
           cpus: 0.5
           memory: 270M
+    depends_on:
+      postgres:
+        condition: service_healthy
   postgres:
     hostname: postgres
     build:

@@ -26,6 +26,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation(libs.r2dbc.postgresql)
+    implementation(libs.postgresql)
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
