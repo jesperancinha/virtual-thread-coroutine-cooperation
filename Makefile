@@ -16,3 +16,7 @@ accept-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
 install-locust:
 	pip install --upgrade locust jinja2
+install-locust-pip3:
+	pip3 install locust
+install-locust-brew:
+	brew install locust
