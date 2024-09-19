@@ -24,6 +24,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation(libs.r2dbc.postgresql)
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 

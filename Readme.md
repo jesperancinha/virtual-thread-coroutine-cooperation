@@ -12,7 +12,21 @@ also be true
 | [1.0.0]()          | [d00c17e448a19c3653e3c86093161e508e35c06d](d00c17e448a19c3653e3c86093161e508e35c06d)     | [Could Virtual Threads Cast Away the Usage of Kotlin Coroutines](https://www.scribd.com/presentation/768072685/Could-Virtual-Threads-Cast-Away-the-Usage-of-Kotlin-Coroutines). Just the documentation on Scribd |
 
 * Note: All services do not have a converter implemented. This is intentional with the purpose to simplify code. In production environments, the DTO layer should be separated from the Domain and that separation should be very clear for purposes of readability, but also in some cases for safety concerns.
-* 
+
+Projects for comparisons:
+1. [warehouse-fulfilment-mvc](warehouse-fulfilment-mvc)
+2. [warehouse-fulfilment-webflux](warehouse-fulfilment-webflux)
+3. [warehouse-fulfilment-coroutines](warehouse-fulfilment-coroutines)
+4. [warehouse-fulfilment-vt](warehouse-fulfilment-vt)
+
+Only for version 1.0.0:
+
+[warehouse-fulfilment-vt-coroutines](warehouse-fulfilment-vt-coroutines)
+
+Experiments with non-blocking logs:
+
+[warehouse-fulfilment-webflux-non-blocking](warehouse-fulfilment-webflux-non-blocking)
+
 ## Resources
 
 ### Online
