@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication
-class VirtualThreadsExample
+class WarehouseFulfilmentMVCLauncher
 
 fun main(args: Array<String>) {
-    SpringApplication.run(VirtualThreadsExample::class.java, *args)
+    SpringApplication.run(WarehouseFulfilmentMVCLauncher::class.java, *args)
 }
