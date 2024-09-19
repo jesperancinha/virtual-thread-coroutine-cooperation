@@ -19,7 +19,7 @@ services:
     env_file: ../docker-psql/.env
     user: postgres
     volumes:
-      - ../docker-psql/init-scripts:/docker-entrypoint-initdb.d
+      - ../docker-psql:/docker-entrypoint-initdb.d
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "postgres" ]
       interval: 10s

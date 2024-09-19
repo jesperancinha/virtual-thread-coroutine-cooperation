@@ -12,6 +12,10 @@ services:
         limits:
           cpus: 0.5
           memory: 270M
+    depends_on:
+      postgres:
+        condition: service_healthy
+
   postgres:
     hostname: postgres
     build:
@@ -19,7 +23,7 @@ services:
     env_file: ../docker-psql/.env
     user: postgres
     volumes:
-      - ../docker-psql/init-scripts:/docker-entrypoint-initdb.d
+      - ../docker-psql:/docker-entrypoint-initdb.d
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "postgres" ]
       interval: 10s

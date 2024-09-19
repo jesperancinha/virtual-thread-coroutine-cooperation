@@ -1,8 +1,7 @@
-FROM postgres:11-alpine
+FROM postgres:15
 
-COPY postgresql.conf /etc/postgresql/postgresql.conf
+COPY . /docker-entrypoint-initdb.d
 
-COPY init-scripts/create-multiple-postgresql-databases.sh /docker-entrypoint-initdb.d/create-multiple-postgresql-databases.sh
+COPY ./multiple /docker-entrypoint-initdb.d/multiple
 
 EXPOSE 5432
-

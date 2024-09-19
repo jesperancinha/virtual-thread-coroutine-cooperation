@@ -21,7 +21,7 @@ class FulfilmentController(
     fun getItems() = productService.getAllItems()
 
     @GetMapping("{id}")
-    suspend fun getItem(@PathVariable id: UUID) = productService.getItemById(id)
+    fun getItem(@PathVariable id: UUID) = productService.getItemById(id)
 
     companion object {
         val logger: Logger = LoggerFactory.getLogger(FulfilmentController::class.java)
