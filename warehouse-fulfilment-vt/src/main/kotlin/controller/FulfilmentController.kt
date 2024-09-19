@@ -1,23 +1,25 @@
 package org.jesperancinha.controller
 
-import org.jesperancinha.domain.IsleType.Room
-import org.jesperancinha.domain.Product
+import org.jesperancinha.service.ProductService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.util.UUID
 
 @RestController
 @RequestMapping("fulfilment")
-class FulfilmentController {
+class FulfilmentController(
+    private val productService: ProductService,
+) {
 
     @GetMapping
-    fun getItems() = (1..10).map {
-        val product = Product(name = "TV", isleType = Room)
-        logger.info("Product: $product")
-        product.name
-    }
+    fun getItems() = productService.getAllItems()
+
+    @GetMapping("{id}")
+    suspend fun getItem(@PathVariable id: UUID) = productService.getItemById(id)
 
     companion object {
         val logger: Logger = LoggerFactory.getLogger(FulfilmentController::class.java)
