@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*
 
 interface ProductDao: JpaRepository<Product, UUID>
+
 enum class IsleType {
     Kitchen,
     Room,

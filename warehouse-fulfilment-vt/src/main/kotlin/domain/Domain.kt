@@ -1,27 +1,22 @@
 package org.jesperancinha.domain
 
-import jakarta.persistence.Entity
-import jakarta.persistence.EnumType
-import jakarta.persistence.Enumerated
-import jakarta.persistence.Id
-import jakarta.persistence.Table
-import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.annotation.Id
+import org.springframework.data.repository.CrudRepository
+import org.springframework.stereotype.Repository
 import java.util.*
 
-interface ProductDao: JpaRepository<Product, UUID>
+@Repository
+interface ProductDao: CrudRepository<Product, UUID>
+
 enum class IsleType {
     Kitchen,
     Room,
     Garden,
     Misc
 }
-
-@Entity
-@Table(name = "product")
 data class Product(
     @Id
     val id:UUID  = UUID.randomUUID(),
     val name: String,
-    @Enumerated(EnumType.STRING)
     val isleType: IsleType
 )
