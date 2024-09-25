@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-java -jar warehouse-fulfilment.jar --spring.profiles.active=docker -XX:ActiveProcessorCount=4 -Djdk.virtualThreadScheduler.maxPoolSize=4 -Djdk.virtualThreadScheduler.parallelism=4 -Djdk.tracePinnedThreads=full
+java -Xms350m -Xmx350m -jar warehouse-fulfilment.jar --spring.profiles.active=docker -XX:ActiveProcessorCount=4 -Djdk.virtualThreadScheduler.maxPoolSize=4 -Djdk.virtualThreadScheduler.parallelism=4 -Djdk.tracePinnedThreads=full
