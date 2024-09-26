@@ -10,8 +10,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 5.0
-          memory: 500M
+          cpus: 4.0
+          memory: 1G
   postgres:
     hostname: postgres
     build:

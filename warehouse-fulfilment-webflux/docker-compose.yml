@@ -10,8 +10,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 5.0
-          memory: 500M
+          cpus: 4.0
+          memory: 1G
     depends_on:
       postgres:
         condition: service_healthy
