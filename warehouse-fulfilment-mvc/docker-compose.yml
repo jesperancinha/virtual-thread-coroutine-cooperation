@@ -11,7 +11,7 @@ services:
       resources:
         limits:
           cpus: 5.0
-          memory: 400M
+          memory: 500M
     depends_on:
       postgres:
         condition: service_healthy
