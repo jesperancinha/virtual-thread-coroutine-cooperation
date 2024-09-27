@@ -14,6 +14,6 @@ slf4j-simple = { group = "org.slf4j", name = "slf4j-simple", version = "2.0.16" 
 spring-context = { group = "org.springframework", name = "spring-context", version = "6.1.13" }
 spring-web = { group = "org.springframework", name = "spring-web", version = "6.1.13" }
 spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version = "3.3.4" }
-jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version = "2.17.2" }
+jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version = "2.18.0" }
 r2dbc-postgresql = { group = "org.postgresql", name = "r2dbc-postgresql", version = "1.0.5.RELEASE" }
 postgresql = { group = "org.postgresql", name = "postgresql", version = "42.7.4" }
