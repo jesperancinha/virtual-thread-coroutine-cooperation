@@ -1,4 +1,4 @@
-package org.jesperancinha.domain
+package org.jesperancinha.vtcc.domain
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
@@ -14,7 +14,7 @@ enum class IsleType {
 }
 data class Product(
     @Id
-    val id:UUID  = UUID.randomUUID(),
+    var id:UUID? = null,
     val name: String,
-    val isleType: IsleType
+    val isleType: IsleType? = null
 )

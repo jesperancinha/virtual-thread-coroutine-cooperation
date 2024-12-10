@@ -29,3 +29,7 @@ tasks.test {
 tasks.withType<JavaCompile> {
     options.compilerArgs.add("--enable-preview")
 }
+
+kotlin {
+    jvmToolchain(21)
+}

@@ -1,8 +1,11 @@
-CREATE TYPE isle_type AS ENUM ('Kitchen', 'Room','Garden','Misc');
+-- CREATE TYPE IsleType AS ENUM ('Kitchen', 'Room','Garden','Misc');
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 
 CREATE TABLE product
 (
-    id        UUID PRIMARY KEY,
+    id        UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
     name      VARCHAR(255) NOT NULL,
-    isle_type isle_type    NOT NULL
+    isle_type VARCHAR(255) NOT NULL
 );

@@ -1,6 +1,6 @@
-package org.jesperancinha.controller
+package org.jesperancinha.vtcc.controller
 
-import org.jesperancinha.service.FulfilmentService
+import org.jesperancinha.vtcc.service.FulfilmentService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.GetMapping
