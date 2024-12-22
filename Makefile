@@ -22,3 +22,5 @@ install-locust-pip3:
 	pip3 install locust
 install-locust-brew:
 	brew install locust
+print-error-report:
+	if [ -f build/reports/problems/problems-report.html ]; then cat build/reports/problems/problems-report.html; fi;
