@@ -25,3 +25,8 @@ jobs:
 
         - name: Build and Test
           run:  make b
+
+        - name: Build and Test Fail!
+          if: failure()
+          run: |
+            make print-error-report
