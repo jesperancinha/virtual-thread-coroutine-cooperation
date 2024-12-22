@@ -1,8 +1,10 @@
 include Makefile.mk
 
-b: build
+b: cleanup build
 build: wrapper
-	./gradlew build test
+	./gradlew build test;
+cleanup:
+		if [ -f build/reports/problems/problems-report.html ]; then rm build/reports/problems/problems-report.html; fi;
 wrapper:
 	gradle wrapper
 deps-plugins-update:
