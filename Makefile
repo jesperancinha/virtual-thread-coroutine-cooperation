@@ -2,7 +2,8 @@ include Makefile.mk
 
 b: build
 build: wrapper
-	./gradlew build test
+	./gradlew build test; \
+	print-error-report;
 wrapper:
 	gradle wrapper
 deps-plugins-update:
