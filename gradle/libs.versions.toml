@@ -18,4 +18,4 @@ jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackso
 r2dbc-postgresql = { group = "org.postgresql", name = "r2dbc-postgresql", version = "1.0.7.RELEASE" }
 postgresql = { group = "org.postgresql", name = "postgresql", version = "42.7.5" }
 testcontainers = { group = "org.testcontainers", name = "testcontainers", version = "1.20.5" }
-testcontainers-postgresq = { group = "org.testcontainers", name = "postgresql", version = "1.20.5" }
+testcontainers-postgresq = { group = "org.testcontainers", name = "postgresql", version = "1.20.6" }
