@@ -48,6 +48,14 @@ Experiments with non-blocking logs:
 -   [Good story](https://github.com/jesperancinha/good-story/)
 -   [Kotlin Mysteries](https://github.com/jesperancinha/kotlin-mysteries)
 
+> For more information about using the different JDK's using SDK-MAN please check the docs on my cloud project over at:
+> 
+> https://github.com/jesperancinha/jeorg-cloud-test-drives/tree/main/docs
+> 
+> https://github.com/jesperancinha/jeorg-cloud-test-drives/tree/main/docs/system/ubuntu
+> 
+> https://jesperancinha.github.io/jeorg-cloud-test-drives/
+
 ## About me
 
 [![GitHub followers](https://img.shields.io/github/followers/jesperancinha.svg?label=Jesperancinha&style=for-the-badge&logo=github&color=grey "GitHub")](https://github.com/jesperancinha)
