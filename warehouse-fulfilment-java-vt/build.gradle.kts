@@ -24,6 +24,9 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+tasks.bootJar {
+    archiveFileName.set("warehouse-fulfilment.jar")
+}
 
 java {
     toolchain {

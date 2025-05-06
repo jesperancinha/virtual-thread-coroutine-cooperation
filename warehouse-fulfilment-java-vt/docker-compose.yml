@@ -1,0 +1,27 @@
+services:
+  fulfilment:
+    hostname: mvc
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+    deploy:
+      resources:
+        limits:
+          cpus: 4.0
+          memory: 1G
+  postgres:
+    hostname: postgres
+    build:
+      context: ../docker-psql/.
+    env_file: ../docker-psql/.env
+    user: postgres
+    volumes:
+      - ../docker-psql:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
