@@ -15,3 +15,5 @@ include("warehouse-fulfilment-coroutines")
 include("warehouse-fulfilment-vt")
 include("warehouse-fulfilment-errors-vt")
 include("warehouse-fulfilment-vt-coroutines")
+
+include("warehouse-fulfilment-java-vt")
