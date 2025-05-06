@@ -35,6 +35,8 @@ Experiments with non-blocking logs:
 
 ### Online
 
+-   [Kotlin releases](https://kotlinlang.org/docs/releases.html)
+-   [JEP 491: Synchronize Virtual Threads without Pinning](https://openjdk.org/jeps/491)
 -   [Java 21 Virtual Threads - Dude, Where’s My Lock?](https://netflixtechblog.com/java-21-virtual-threads-dude-wheres-my-lock-3052540e231d)
 -   [Coroutines, Java Virtual Threads and Scoped Values](https://discuss.kotlinlang.org/t/coroutines-java-virtual-threads-and-scoped-values/28004/2)
 -   [Embracing Virtual Threads](https://spring.io/blog/2022/10/11/embracing-virtual-threads)
@@ -46,6 +48,14 @@ Experiments with non-blocking logs:
 
 -   [Good story](https://github.com/jesperancinha/good-story/)
 -   [Kotlin Mysteries](https://github.com/jesperancinha/kotlin-mysteries)
+
+> For more information about using the different JDK's using SDK-MAN please check the docs on my cloud project over at:
+> 
+> https://github.com/jesperancinha/jeorg-cloud-test-drives/tree/main/docs
+> 
+> https://github.com/jesperancinha/jeorg-cloud-test-drives/tree/main/docs/system/ubuntu
+> 
+> https://jesperancinha.github.io/jeorg-cloud-test-drives/
 
 ## About me
 
