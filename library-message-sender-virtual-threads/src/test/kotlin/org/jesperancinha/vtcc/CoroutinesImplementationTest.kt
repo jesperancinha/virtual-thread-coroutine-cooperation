@@ -29,12 +29,12 @@ class CoroutinesImplementationTest {
     @Test
     fun `should test coroutines`(): Unit = runBlocking(Dispatchers.IO) {
         val messageSender = MessageSenderCoroutines()
-        messageSender.sendMessage("This is a message", (1..100).map {
-            User(
-                id = Random.nextLong(), name = "user-${UUID.randomUUID()}", email = "user-${UUID.randomUUID()}"
-            )
-        })
-
+        runCatching {
+            messageSender.sendMessage("This is a message", (1..100).map {
+                User(
+                    id = Random.nextLong(), name = "user-${UUID.randomUUID()}", email = "user-${UUID.randomUUID()}"
+                )
+            })
+        }
     }
-
 }
