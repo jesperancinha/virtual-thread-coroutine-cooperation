@@ -35,6 +35,7 @@ Experiments with non-blocking logs:
 
 ### Online
 
+-  [JEP 491: Synchronize Virtual Threads without Pinning](https://openjdk.org/jeps/491)
 -   [Java 21 Virtual Threads - Dude, Where’s My Lock?](https://netflixtechblog.com/java-21-virtual-threads-dude-wheres-my-lock-3052540e231d)
 -   [Coroutines, Java Virtual Threads and Scoped Values](https://discuss.kotlinlang.org/t/coroutines-java-virtual-threads-and-scoped-values/28004/2)
 -   [Embracing Virtual Threads](https://spring.io/blog/2022/10/11/embracing-virtual-threads)
