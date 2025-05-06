@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.util.Optional
 import java.util.UUID
 
 @RestController
@@ -18,10 +19,10 @@ class FulfilmentController(
 ) {
 
     @GetMapping
-    fun getItems() = productService.getAllItems()
+    fun getItems(): List<Product> = productService.getAllItems()
 
     @GetMapping("{id}")
-    fun getItem(@PathVariable id: UUID) = productService.getItemById(id)
+    fun getItem(@PathVariable id: UUID): Optional<Product> = productService.getItemById(id)
 
     companion object {
         val logger: Logger = LoggerFactory.getLogger(FulfilmentController::class.java)
