@@ -33,7 +33,7 @@ tasks.test {
     useJUnitPlatform()
 }
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(24)
 }
 
 tasks.register("prepareKotlinBuildScriptModel") {}
