@@ -26,10 +26,19 @@ tasks.test {
     useJUnitPlatform()
     jvmArgs("--enable-preview")
 }
+
 tasks.withType<JavaCompile> {
     options.compilerArgs.add("--enable-preview")
 }
 
 kotlin {
-    jvmToolchain(24)
+    jvmToolchain(23)
+}
+tasks.withType<JavaCompile>().configureEach {
+    targetCompatibility = "23"
+}
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_23)
+    }
 }

@@ -63,7 +63,7 @@ public class UserServiceJVTJava {
     }
 
     void updateUI(ProcessedData processedData) {
-        logger.info(() -> STR."This is the data \{processedData}");
+        logger.info(() -> String.format("This is the data %s", processedData));
         dummySystem.get().add(processedData);
     }
 
