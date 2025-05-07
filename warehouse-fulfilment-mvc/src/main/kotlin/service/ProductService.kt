@@ -1,6 +1,8 @@
 package org.jesperancinha.service
 
+import org.jesperancinha.domain.Product
 import org.jesperancinha.domain.ProductDao
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import java.util.UUID
 
@@ -8,6 +10,6 @@ import java.util.UUID
 class ProductService(
     private val productDao: ProductDao
 ) {
-    fun getAllItems() = productDao.findAll()
-    fun getItemById(uUID: UUID) = productDao.findById(uUID)
+    fun getAllItems(): List<Product> = productDao.findAll()
+    fun getItemById(uUID: UUID): Product? = productDao.findByIdOrNull(uUID)
 }

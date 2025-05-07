@@ -22,7 +22,7 @@ class FulfilmentController(
     fun getItems(): List<Product> = productService.getAllItems()
 
     @GetMapping("{id}")
-    fun getItem(@PathVariable id: UUID): Optional<Product> = productService.getItemById(id)
+    fun getItem(@PathVariable id: UUID): Product? = productService.getItemById(id)
 
     companion object {
         val logger: Logger = LoggerFactory.getLogger(FulfilmentController::class.java)
