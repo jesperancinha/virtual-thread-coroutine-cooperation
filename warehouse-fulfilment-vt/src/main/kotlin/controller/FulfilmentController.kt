@@ -1,5 +1,6 @@
 package org.jesperancinha.controller
 
+import org.jesperancinha.domain.Product
 import org.jesperancinha.service.ProductService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -16,10 +17,10 @@ class FulfilmentController(
 ) {
 
     @GetMapping
-    fun getItems() = productService.getAllItems()
+    fun getItems(): List<Product> = productService.getAllItems()
 
     @GetMapping("{id}")
-    suspend fun getItem(@PathVariable id: UUID) = productService.getItemById(id)
+    suspend fun getItem(@PathVariable id: UUID): Product? = productService.getItemById(id)
 
     companion object {
         val logger: Logger = LoggerFactory.getLogger(FulfilmentController::class.java)

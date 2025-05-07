@@ -20,6 +20,8 @@ stop-all-containers:
 	docker ps -a -q --filter="name=postgres" | xargs -I {}  docker rm {}
 	docker images -a -q --filter="reference=ware*" | xargs -I {} docker rmi {}
 	docker images -a -q --filter="reference=postgres*" | xargs -I {} docker rmi {}
+remove-all-containers:
+	docker ps -aq | xargs -I {} docker rm -f {}
 dcup-full: b
 	docker-compose up -d
 dcup:
