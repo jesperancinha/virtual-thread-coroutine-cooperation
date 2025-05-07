@@ -8,6 +8,6 @@ import java.util.*
 @Service
 class FulfilmentService (val productDao: ProductDao) {
     fun getAllItems() = productDao.findAll()
-    suspend fun getItemById(uUID: UUID) = productDao.findById(uUID)
+    suspend fun getItemById(uUID: UUID): Product? = productDao.findById(uUID)
     suspend fun save(item: Product) = productDao.save(item)
 }

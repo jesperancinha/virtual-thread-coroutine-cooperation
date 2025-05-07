@@ -7,3 +7,5 @@ launch-locust:
 	locust -f locust_fulfilment.py --host=http://localhost:8080
 up:
 	docker-compose up -d --build
+down:
+	docker-compose down

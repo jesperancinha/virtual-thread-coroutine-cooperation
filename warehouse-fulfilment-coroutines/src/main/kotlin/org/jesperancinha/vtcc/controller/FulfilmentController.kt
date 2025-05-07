@@ -1,5 +1,7 @@
 package org.jesperancinha.vtcc.controller
 
+import kotlinx.coroutines.flow.Flow
+import org.jesperancinha.vtcc.domain.Product
 import org.jesperancinha.vtcc.service.FulfilmentService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -16,10 +18,10 @@ class FulfilmentController(
 ) {
 
     @GetMapping
-    fun getItems() = fulfilmentService.getAllItems()
+    fun getItems(): Flow<Product> = fulfilmentService.getAllItems()
 
     @GetMapping("{id}")
-    suspend fun getItem(@PathVariable id: UUID) = fulfilmentService.getItemById(id)
+    suspend fun getItem(@PathVariable id: UUID): Product? = fulfilmentService.getItemById(id)
 
     companion object {
         val logger: Logger = LoggerFactory.getLogger(FulfilmentController::class.java)
