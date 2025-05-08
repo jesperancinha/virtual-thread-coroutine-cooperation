@@ -1,5 +1,6 @@
 package org.jesperancinha.vtcc.controller;
 
+import org.jesperancinha.vtcc.domain.Product;
 import org.jesperancinha.vtcc.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -25,7 +27,7 @@ public class FulfilmentController {
     }
 
     @GetMapping
-    public Object getItems() {
+    public List<Product> getItems() {
         return productService.getAllItems();
     }
 

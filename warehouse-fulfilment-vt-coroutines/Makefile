@@ -18,3 +18,7 @@ dcup:
 dcup-rebuild:
 	docker-compose down
 	docker-compose up -d --build --force-recreate
+up:
+	docker-compose up -d --build
+down:
+	docker-compose down
