@@ -21,8 +21,11 @@ class FulfilmentController(
     @GetMapping
     fun getItems(): Flux<Product> = productService.getAllItems()
 
-    @GetMapping("{id}")
-     fun getItem(@PathVariable id: UUID): Mono<Product> = productService.getItemById(id)
+    @GetMapping("/{id}")
+    fun getItem(@PathVariable id: UUID): Mono<Product> {
+        println("${Thread.currentThread().name} is virtual? ${Thread.currentThread().isVirtual}")
+        return productService.getItemById(id)
+    }
 
     companion object {
         val logger: Logger = LoggerFactory.getLogger(FulfilmentController::class.java)

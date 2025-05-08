@@ -22,3 +22,5 @@ up:
 	docker-compose up -d --build
 down:
 	docker-compose down
+monitor:
+	jcmd <PID> Thread.print
