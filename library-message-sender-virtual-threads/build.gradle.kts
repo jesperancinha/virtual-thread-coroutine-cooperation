@@ -17,6 +17,10 @@ dependencies {
     implementation(libs.slf4j.api)
     implementation(libs.slf4j.simple)
     testImplementation(libs.spring.boot.starter.test)
+    testImplementation(platform("org.junit:junit-bom:5.12.2"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.junit.platform:junit-platform-engine")
+    testImplementation("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test {
