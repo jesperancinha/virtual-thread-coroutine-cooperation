@@ -16,6 +16,6 @@ spring-web = { group = "org.springframework", name = "spring-web", version = "6.
 spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version = "3.4.6" }
 jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version = "2.19.0" }
 r2dbc-postgresql = { group = "org.postgresql", name = "r2dbc-postgresql", version = "1.0.7.RELEASE" }
-postgresql = { group = "org.postgresql", name = "postgresql", version = "42.7.6" }
+postgresql = { group = "org.postgresql", name = "postgresql", version = "42.7.7" }
 testcontainers = { group = "org.testcontainers", name = "testcontainers", version = "1.21.1" }
 testcontainers-postgresq = { group = "org.testcontainers", name = "postgresql", version = "1.21.1" }
