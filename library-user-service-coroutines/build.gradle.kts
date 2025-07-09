@@ -11,11 +11,17 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom(libs.spring.boot.dependencies.get().toString())
+    }
+}
+
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.reactor)
-    implementation(libs.spring.context)
-    implementation(libs.spring.web)
+    implementation("org.springframework:spring-context")
+    implementation("org.springframework:spring-web")
     implementation(libs.slf4j.api)
     implementation(libs.slf4j.simple)
     testImplementation(libs.spring.boot.starter.test)
