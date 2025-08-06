@@ -26,6 +26,10 @@ dependencies {
     implementation(libs.slf4j.simple)
     testImplementation(libs.spring.boot.starter.test)
     testImplementation(libs.kotest.assertions.core.jvm)
+    testImplementation(platform(libs.junit.bom))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.junit.platform:junit-platform-engine")
+    testImplementation("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test {
