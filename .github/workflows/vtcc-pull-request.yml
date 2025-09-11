@@ -17,6 +17,7 @@ jobs:
 
         - name: Clean Gradle cache
           run: ./gradlew --stop && rm -rf ~/.gradle/caches/ && rm -rf ~/.gradle/wrapper/
+
         - name: Build and Test
           run:  make b
 
