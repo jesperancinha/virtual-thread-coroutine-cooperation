@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.spring.dependency.management)
-    alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.spring)
+    alias(libs.plugins.kotlin.jvm)
 }
 
 group = "org.jesperancinha.vtcc"
@@ -11,18 +11,13 @@ repositories {
     mavenCentral()
 }
 
-dependencyManagement {
-    imports {
-        mavenBom(libs.spring.boot.dependencies.get().toString())
-    }
-}
-
 dependencies {
+    implementation(platform(libs.spring.boot.starter.parent))
     implementation(libs.kotlinx.coroutines.core)
     implementation("org.springframework:spring-context")
-    implementation(libs.slf4j.api)
-    implementation(libs.slf4j.simple)
-    testImplementation(libs.spring.boot.starter.test)
+    implementation("org.slf4j:slf4j-api")
+    implementation("org.slf4j:slf4j-simple")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(platform(libs.junit.bom))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.junit.platform:junit-platform-engine")
