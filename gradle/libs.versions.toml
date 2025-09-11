@@ -1,21 +1,20 @@
+[versions]
+spring-boot = "3.5.5"
+kotlin = "2.2.0"
+
 [plugins]
-kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version = "2.2.10" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.2.10" }
-kotlin-noarg = { id = "org.jetbrains.kotlin.plugin.noarg", version = "2.2.10" }
-spring-boot = { id = "org.springframework.boot", version = "3.5.5" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-noarg = { id = "org.jetbrains.kotlin.plugin.noarg", version.ref = "kotlin" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dependency-management = { id = "io.spring.dependency-management", version = "1.1.7" }
 
 [libraries]
 kotest-assertions-core-jvm = { group = "io.kotest", name = "kotest-assertions-core-jvm", version = "6.0.3" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version = "1.10.2" }
 kotlinx-coroutines-reactor = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor", version = "1.10.2" }
-slf4j-api = { group = "org.slf4j", name = "slf4j-api", version = "2.0.17" }
-slf4j-simple = { group = "org.slf4j", name = "slf4j-simple", version = "2.0.17" }
-spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version = "3.5.5" }
-spring-boot-dependencies = { group = "org.springframework.boot", name = "spring-boot-dependencies", version = "3.5.5" }
 junit-bom = { group = "org.junit", name = "junit-bom", version = "5.13.4" }
-jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version = "2.19.2" }
 r2dbc-postgresql = { group = "org.postgresql", name = "r2dbc-postgresql", version = "1.0.7.RELEASE" }
-postgresql = { group = "org.postgresql", name = "postgresql", version = "42.7.7" }
 testcontainers = { group = "org.testcontainers", name = "testcontainers", version = "1.21.3" }
 testcontainers-postgresq = { group = "org.testcontainers", name = "postgresql", version = "1.21.3" }
+spring-boot-starter-parent = { group = "org.springframework.boot", name = "spring-boot-starter-parent", version.ref = "spring-boot" }
