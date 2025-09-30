@@ -13,7 +13,7 @@ spring-dependency-management = { id = "io.spring.dependency-management", version
 kotest-assertions-core-jvm = { group = "io.kotest", name = "kotest-assertions-core-jvm", version = "6.0.3" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version = "1.10.2" }
 kotlinx-coroutines-reactor = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor", version = "1.10.2" }
-junit-bom = { group = "org.junit", name = "junit-bom", version = "5.13.4" }
+junit-bom = { group = "org.junit", name = "junit-bom", version = "6.0.0" }
 r2dbc-postgresql = { group = "org.postgresql", name = "r2dbc-postgresql", version = "1.0.7.RELEASE" }
 testcontainers = { group = "org.testcontainers", name = "testcontainers", version = "1.21.3" }
 testcontainers-postgresq = { group = "org.testcontainers", name = "postgresql", version = "1.21.3" }
