@@ -28,6 +28,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.reactor)
     implementation(libs.r2dbc.postgresql)
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    testImplementation(platform(libs.testcontainersBom))
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation(libs.testcontainers)
