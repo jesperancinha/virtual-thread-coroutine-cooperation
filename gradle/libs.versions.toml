@@ -10,7 +10,7 @@ spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dependency-management = { id = "io.spring.dependency-management", version = "1.1.7" }
 
 [libraries]
-kotest-assertions-core-jvm = { group = "io.kotest", name = "kotest-assertions-core-jvm", version = "6.0.4" }
+kotest-assertions-core-jvm = { group = "io.kotest", name = "kotest-assertions-core-jvm", version = "6.0.5" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version = "1.10.2" }
 kotlinx-coroutines-reactor = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor", version = "1.10.2" }
 junit-bom = { group = "org.junit", name = "junit-bom", version = "6.0.1" }
