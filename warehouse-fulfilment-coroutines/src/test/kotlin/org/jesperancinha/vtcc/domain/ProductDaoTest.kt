@@ -19,8 +19,8 @@ import org.springframework.transaction.reactive.TransactionalOperator
 @SpringBootTest
 @Import(AppConfiguration::class)
 class ProductDaoTest @Autowired constructor(
-    val productDao: ProductDao,
-    val transactionOperator: TransactionalOperator
+    private val productDao: ProductDao,
+    private val transactionOperator: TransactionalOperator
 ) {
     @Test
     fun `should test switch fail`(): Unit = runBlocking {
