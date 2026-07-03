@@ -27,7 +27,7 @@ class TaskService {
 @EnableAsync
 class VirtualThreadsDemoApplication(
     val taskService: TaskService,
-    @Value("\${org.jesperancinha.vtcc.tasks}") private val tasks: Int,
+    @param:Value($$"${org.jesperancinha.vtcc.tasks}") private val tasks: Int,
 ) : CommandLineRunner{
 
     override fun run(vararg args: String?) {
