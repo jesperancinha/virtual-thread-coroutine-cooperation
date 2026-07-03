@@ -55,6 +55,8 @@ class BankCompanyLauncherOtherPropertiesKotlinTest {
 }
 ```
 
+The same code should be applied to annotation `@Autowired`, but only for non-test classes and only in kotlin files.
+
 ## 3. Checklist
 
 [] Make sure there is no more use of `@Value` annotation being used directly
