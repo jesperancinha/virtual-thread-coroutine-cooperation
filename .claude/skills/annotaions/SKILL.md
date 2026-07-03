@@ -9,7 +9,7 @@ Remember to run tests after replacing all of them
 
 ## 2. Make sure to use interpolation prefixes for the `@Value` annotation in Kotlin classes and files only
 
-### Example 1
+### Example 1 (applying to params)
 
 Replace this:
 
@@ -27,6 +27,32 @@ class VirtualThreadsDemoApplication(
     val taskService: TaskService,
     @param:Value($$"${org.jesperancinha.vtcc.tasks}") private val tasks: Int,
 ) 
+```
+
+### Example 2 (applying to fields, on lateinit vars
+
+Replace this:
+
+```kotlin
+class BankCompanyLauncherOtherPropertiesKotlinTest {
+    /**
+     * Properties and environment variables
+     */
+    @Value($$"${environment}")
+    private lateinit var environment: String
+}
+```
+
+with this:
+
+```kotlin
+class BankCompanyLauncherOtherPropertiesKotlinTest {
+    /**
+     * Properties and environment variables
+     */
+    @field:Value($$"${environment}")
+    private lateinit var environment: String
+}
 ```
 
 ## 3. Checklist
