@@ -67,3 +67,6 @@ javaUpdatesOne.sh
 
 ## Python
 __pycache__
+
+# Generated files
+dependabot.yml.bak

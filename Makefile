@@ -28,3 +28,5 @@ install-locust-brew:
 	brew install locust
 print-error-report:
 	if [ -f build/reports/problems/problems-report.html ]; then cat build/reports/problems/problems-report.html; fi;
+find-print-error-report:
+	grep -r --include="Makefile" -e "print-error-report" .
